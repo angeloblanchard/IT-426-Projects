@@ -176,7 +176,7 @@ public class CalculatorUI extends Application
         row5.setBorder(new Border(new BorderStroke(Color.GRAY,
                 BorderStrokeStyle.SOLID, CornerRadii.EMPTY, new BorderWidths(2, 2, 2, 2))));
 
-        Label output = new Label("73");
+        Label output = new Label("0");
 
 
         row5.getChildren().addAll(output);
