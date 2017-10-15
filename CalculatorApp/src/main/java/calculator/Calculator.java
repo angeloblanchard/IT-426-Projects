@@ -10,6 +10,8 @@ import javafx.scene.input.KeyEvent;
  * @Author Angelo Blanchard
  * @Date October 13 2017
  * @Version 1.0
+ * This class is the model that handles all the logic coming in from keyboard and button input,
+ * and displays it to the UI label.
  */
 public class Calculator
 {
@@ -121,7 +123,10 @@ public class Calculator
                 }
             });
 
-            //String key = keyPress;
+            //String key = keyPress; <-- Was hoping to use the ActionEvent built below, instead
+            // of having to build near the same EventHandler twice.
+
+
             // When clicking the UI buttons
             button.setOnAction(new EventHandler<ActionEvent>()
             {
