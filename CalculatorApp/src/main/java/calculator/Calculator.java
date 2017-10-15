@@ -6,6 +6,11 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.input.KeyEvent;
 
+/**
+ * @Author Angelo Blanchard
+ * @Date October 13 2017
+ * @Version 1.0
+ */
 public class Calculator
 {
     private static String operandOneString = "";
@@ -13,17 +18,13 @@ public class Calculator
     private static String operator = "";
     private static boolean flagEnter;
     private static boolean flagOperator;
-//    private EventHandler<KeyEvent> buttonHandler = new EventHandler<KeyEvent>()
-//    {
-//        @Override
-//        public void handle(KeyEvent event)
-//        {
-//        String keyPressed = event.getText();
-//            System.out.println(keyPressed);
-//        }
-//    };
+    private static String keyPress;
 
 
+    /**
+     * This method calculates the total using both operands and the operator and returns it.
+     * @return The answer total to be displayed on the label.
+     */
     private static int calculate()
     {
         int answer = 0;
@@ -51,17 +52,83 @@ public class Calculator
         return answer;
     }
 
+    /**
+     * This method handles all the inputs selected by the Calculator UI. When operands,
+     * operators, or enter is pressed, calculates and displays the current operand or answer.
+     * @param buttons Array of all buttons on Calculator UI
+     * @param output Output label that displays operators and answer
+     */
     public static void activeKeys(Button[] buttons, Label output)
     {
         for (Button button : buttons)
         {
             String key = button.getText();
+
+            // When keys are pressed
+            button.setOnKeyPressed(new EventHandler<KeyEvent>()
+            {
+                @Override
+                public void handle(KeyEvent event)
+                {
+                    switch (event.getCode())
+                    {
+                        case ENTER:
+                            keyPress = "Enter";
+                            break;
+                        case ADD:
+                            keyPress = "+";
+                            break;
+                        case SUBTRACT:
+                            keyPress = "-";
+                            break;
+                        case DIVIDE:
+                            keyPress = "/";
+                            break;
+                        case MULTIPLY:
+                            keyPress = "*";
+                            break;
+                        case NUMPAD0:
+                            keyPress = "0";
+                            break;
+                        case NUMPAD9:
+                            keyPress = "9";
+                            break;
+                        case NUMPAD8:
+                            keyPress = "8";
+                            break;
+                        case NUMPAD7:
+                            keyPress = "7";
+                            break;
+                        case NUMPAD6:
+                            keyPress = "6";
+                            break;
+                        case NUMPAD5:
+                            keyPress = "5";
+                            break;
+                        case NUMPAD4:
+                            keyPress = "4";
+                            break;
+                        case NUMPAD3:
+                            keyPress = "3";
+                            break;
+                        case NUMPAD2:
+                            keyPress = "2";
+                            break;
+                        case NUMPAD1:
+                            keyPress = "1";
+                            break;
+                    }
+                }
+            });
+
+            //String key = keyPress;
+            // When clicking the UI buttons
             button.setOnAction(new EventHandler<ActionEvent>()
             {
                 @Override
                 public void handle(ActionEvent event)
                 {
-                    if (output.getText() == "0")
+                    if (output.getText().equals("0"))
                     {
                         output.setText("");
                     }
@@ -102,7 +169,8 @@ public class Calculator
                         case "Enter" :
                             if (operandTwoString.isEmpty())
                             {
-                                flagEnter = false;
+                                output.setText("0");
+                                operandOneString = "";
                                 break;
                             }
                             else
@@ -118,10 +186,17 @@ public class Calculator
 
                     if (flagEnter)
                     {
-                        int answer = calculate();
-                        output.setText(String.valueOf(answer));
-                        operandTwoString = "";
-                        operandOneString = String.valueOf(answer);
+                        if (operandTwoString.isEmpty())
+                        {
+                            return;
+                        }
+                        else
+                        {
+                            int answer = calculate();
+                            output.setText(String.valueOf(answer));
+                            operandTwoString = "";
+                            operandOneString = String.valueOf(answer);
+                        }
                     }
                     else if (flagOperator && operandTwoString.isEmpty())
                     {
