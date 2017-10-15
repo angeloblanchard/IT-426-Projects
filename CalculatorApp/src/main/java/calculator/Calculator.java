@@ -1,71 +1,98 @@
 package calculator;
 
-import javafx.application.Application;
 import javafx.event.ActionEvent;
-import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.input.KeyEvent;
-import javafx.stage.Stage;
-import ui.CalculatorUI;
 
 public class Calculator
 {
-    private int operandOne;
-    private int operandTwo;
-    private String operator;
-    private EventHandler<KeyEvent> buttonHandler = new EventHandler<KeyEvent>()
-    {
-        @Override
-        public void handle(KeyEvent event)
-        {
-        String keyPressed = event.getText();
-            System.out.println(keyPressed);
-        }
-    };
+    private static String operandOneString;
+    private static String operandTwoString;
+    private static String operator;
+//    private EventHandler<KeyEvent> buttonHandler = new EventHandler<KeyEvent>()
+//    {
+//        @Override
+//        public void handle(KeyEvent event)
+//        {
+//        String keyPressed = event.getText();
+//            System.out.println(keyPressed);
+//        }
+//    };
 
 
-    public int calculate()
+    private static int calculate()
     {
         int answer = 0;
+        int operand1 = refactorToNum(operandOneString);
+        int operand2 = refactorToNum(operandTwoString);
 
         switch (operator) {
-            case "+" : answer = operandOne + operandTwo;
+            case "+" : answer = operand1 + operand2;
             break;
-            case "-" : answer = operandOne - operandTwo;
+            case "-" : answer = operand1 - operand2;
             break;
-            case "*" : answer = operandOne - operandTwo;
+            case "*" : answer = operand1 - operand2;
             break;
-            case "/" : if (operandTwo == 0)
+            case "/" : if (operand2 == 0)
             {
                 answer = 0;
                 break;
             }
             else
             {
-                answer = operandOne / operandTwo;
+                answer = operand1 / operand2;
                 break;
             }
         }
-
-        operandOne = answer;
         return answer;
     }
 
     public static void activeKeys(Button[] buttons, Label output)
     {
-        for (int i = 0; i < buttons.length; i++)
+        for (Button button : buttons)
         {
-            final Button button = buttons[i];
+            String key = button.getText();
             button.setOnAction(new EventHandler<ActionEvent>()
             {
                 @Override
                 public void handle(ActionEvent event)
                 {
-//                    button.setText("You clicked me!");
-                    String currentText = output.getText();
-                    output.setText(currentText + button.getText());
+                    if (output.getText() == "0")
+                    {
+                        output.setText("");
+                    }
+                    boolean flagEnter = false;
+                    boolean flagOperator = false;
+                    switch (key) {
+                        case "0" : case "1" : case "2" : case "3" : case "4" : case "5" :
+                        case "6" : case "7" : case "8" : case "9" :
+                            operandOneString += key;
+                        break;
+
+                        case "+" : case "-" : case "*" : case "/" :
+                            operator = key;
+                            flagOperator = true;
+                            break;
+
+                        case "Enter" : flagEnter = true;
+                        break;
+                    }
+                    if (flagEnter)
+                    {
+                        int answer = calculate();
+                        output.setText("error2");
+                        output.setText(String.valueOf(answer));
+                    }
+                    else if (flagOperator)
+                    {
+                        output.setText("");
+                    }
+                    else
+                    {
+                        output.setText(output.getText() + key);
+                    }
                 }
             });
         }
@@ -73,9 +100,9 @@ public class Calculator
 
 
 
-    public void refactorToNum()
+    private static int refactorToNum(String number)
     {
-        String keyPress;
+        return Integer.parseInt(number);
     }
 
 }
