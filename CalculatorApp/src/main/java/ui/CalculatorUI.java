@@ -10,6 +10,8 @@ import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
+import static calculator.Calculator.activeKeys;
+
 /**
  * @Author Angelo Blanchard
  * @Version 1.0
@@ -181,6 +183,11 @@ public class CalculatorUI extends Application
 
         row5.getChildren().addAll(output);
         vBox.getChildren().add(row5);
+
+        Button[] buttons = new Button[]{one, two, three, four, five, six, seven, eight, nine,
+        zero, divide, multiply, plus, minus, enter};
+
+        activeKeys(buttons, output);
 
 
         return new Scene(vBox, 300, 250);
