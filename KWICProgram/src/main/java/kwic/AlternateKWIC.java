@@ -16,26 +16,24 @@ public class AlternateKWIC
         lines.outputToFile();
     }
 
-    public String getFileName()
-    {
-        return null;
-    }
-
-
     private static class KWICLines
     {
         private ArrayList<String> lines = new ArrayList<String>();
         private KWICLines()
         {
-            File filename = new File("input1.txt");
+            try {
+                File filename = new File("input1.txt");
 
-            Scanner lineScan = new Scanner("input1.txt");
+                Scanner lineScan = new Scanner(filename);
 
-            while(lineScan.hasNextLine())
-            {
-                lines.add(lineScan.nextLine());
+                while(lineScan.hasNextLine())
+                {
+                    lines.add(lineScan.nextLine());
+                }
+                lineScan.close();
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
             }
-            lineScan.close();
         }
         public void circularShift()
         {
