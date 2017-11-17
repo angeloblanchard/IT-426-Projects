@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Scanner;
 
+<<<<<<< HEAD
 /**
  * @Date October 25 2017
  * @Version 1.0
@@ -14,6 +15,8 @@ import java.util.Scanner;
  * This program uses a more instance-based style to implement
  * indexing by using KWIC.
  */
+=======
+>>>>>>> e18d24cdb018df725d3a399ac70120a41eec6260
 public class AlternateKWIC
 {
     public static void main(String[] args)
@@ -42,10 +45,13 @@ public class AlternateKWIC
                 e.printStackTrace();
             }
         }
+<<<<<<< HEAD
 
         /**
          * Shifts the first word in each element's String to the end of same String
          */
+=======
+>>>>>>> e18d24cdb018df725d3a399ac70120a41eec6260
         public void circularShift()
         {
             for (int i = 0; i < lines.size(); i++)
@@ -57,6 +63,7 @@ public class AlternateKWIC
 
         private String shiftLine(String line)
         {
+<<<<<<< HEAD
             if (!line.contains(" "))
             {
                 return line;
@@ -68,6 +75,13 @@ public class AlternateKWIC
         /**
          * Prints the newly shifted and sorted lines to console output and a text file.
          */
+=======
+            String[] array = line.split(" ", 2);
+            String newLine = array[1] + " " + array[0];
+            return newLine;
+        }
+
+>>>>>>> e18d24cdb018df725d3a399ac70120a41eec6260
         public void outputToFile()
         {
             try {
@@ -79,7 +93,11 @@ public class AlternateKWIC
                     System.out.println(line);
                 }
             } catch (FileNotFoundException e) {
+<<<<<<< HEAD
                 System.out.println("Failed to create file.");
+=======
+                System.out.println("Failed to create file.");;
+>>>>>>> e18d24cdb018df725d3a399ac70120a41eec6260
             }
         }
 
