@@ -1,6 +1,7 @@
 package io.exporting;
 
 import model.CarPart;
+import model.PartsDatabase;
 
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
@@ -11,11 +12,11 @@ import java.io.IOException;
 
 public class XMLExporter implements IExporter
 {
-    CarPart carPart;
+    PartsDatabase data;
 
-    public XMLExporter(CarPart carPart)
+    public XMLExporter(PartsDatabase data)
     {
-        this.carPart = carPart;
+        this.data = data;
     }
 
     @Override
@@ -30,15 +31,19 @@ public class XMLExporter implements IExporter
             {
                 CarPart carPartInput = (CarPart)unmarshaller.unmarshal(new File("parts.xml"));
 
-                if (carPart == carPartInput)
+                for (CarPart carPart : data.getParts())
                 {
-                    return false;
+                    if (carPart == carPartInput)
+                    {
+                        return false;
+                    }
                 }
+
             }
 
             Marshaller marshaller = context.createMarshaller();
             marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
-            marshaller.marshal(carPart, new File("parts.xml"));
+            marshaller.marshal(data.getParts(), new File("parts.xml"));
 
             return true;
         } catch (JAXBException e)

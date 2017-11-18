@@ -1,6 +1,7 @@
 package io.importing;
 
 import model.CarPart;
+import model.PartsDatabase;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -9,11 +10,11 @@ import java.io.ObjectInputStream;
 
 public class JavaImporter implements IImporter
 {
-    CarPart carPart;
+    PartsDatabase data;
 
     public JavaImporter()
     {
-        carPart = new CarPart();
+        data = new PartsDatabase();
     }
 
     @Override
@@ -25,7 +26,13 @@ public class JavaImporter implements IImporter
             try
             {
                 ObjectInputStream inputStream = new ObjectInputStream(new FileInputStream("parts.dat"));
-                carPart = (CarPart) inputStream.readObject();
+                while (inputStream.readObject() != null)
+                {
+                    CarPart carPart = (CarPart) inputStream.readObject();
+
+                    data.addPart(carPart);
+                }
+
             } catch (IOException e)
             {
                 e.printStackTrace();

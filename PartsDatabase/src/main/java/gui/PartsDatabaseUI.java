@@ -1,5 +1,13 @@
 package gui;
 
+import io.exporting.IExporter;
+import io.exporting.JSONExporter;
+import io.exporting.JavaExporter;
+import io.exporting.XMLExporter;
+import io.importing.IImporter;
+import io.importing.JSONImporter;
+import io.importing.JavaImporter;
+import io.importing.XMLImporter;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -9,6 +17,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.*;
 import javafx.stage.Stage;
+import model.CarPart;
 import model.PartsDatabase;
 
 import java.io.File;
@@ -36,6 +45,9 @@ public class PartsDatabaseUI extends Application
 
     private ToggleGroup exportToggle;
     private ToggleGroup importToggle;
+
+    private IExporter exporter;
+    private IImporter importer;
 
     /**
      * Creates a new user interface object.
@@ -138,7 +150,14 @@ public class PartsDatabaseUI extends Application
         {
             public void handle(ActionEvent event)
             {
-                //...
+                String partIdString = partId.getText();
+                String manufacturerString = manufacturer.getText();
+                double listPriceDouble = Double.parseDouble(listPrice.getText());
+                String[] categoriesString = categories.getText().split(", ");
+
+                CarPart part = new CarPart(partIdString, manufacturerString, listPriceDouble, categoriesString);
+
+                data.addPart(part);
             }
         });
 
@@ -179,18 +198,31 @@ public class PartsDatabaseUI extends Application
         Button exportButton = new Button("Export");
         exportHeader.getChildren().add(exportButton);
 
+        String[] options = {"Java", "JSON", "XML"};
+        exportToggle = new ToggleGroup();
+        HBox exportRButtons = getRadioButtons(exportToggle, options);
+
         //export all CarPart objects from the application
         exportButton.setOnAction(new EventHandler<ActionEvent>()
         {
             public void handle(ActionEvent event)
             {
-                //...
+                if (exportToggle.getSelectedToggle().toString().equals("Java"))
+                {
+                    exporter = new JavaExporter(data);
+                }
+                else if ((exportToggle.getSelectedToggle().toString().equals("JSON")))
+                {
+                    exporter = new JSONExporter(data);
+                }
+                else if ((exportToggle.getSelectedToggle().toString().equals("XML")))
+                {
+                    exporter = new XMLExporter(data);
+                }
+
+                exporter.exportParts();
             }
         });
-
-        String[] options = {"Java", "JSON", "XML"};
-        exportToggle = new ToggleGroup();
-        HBox exportRButtons = getRadioButtons(exportToggle, options);
 
         //prepare import elements
         HBox importHeader = new HBox();
@@ -205,7 +237,20 @@ public class PartsDatabaseUI extends Application
         {
             public void handle(ActionEvent event)
             {
-                //...
+                if (importToggle.getSelectedToggle().toString().equals("Java"))
+                {
+                    importer = new JavaImporter();
+                }
+                else if ((exportToggle.getSelectedToggle().toString().equals("JSON")))
+                {
+                    importer = new JSONImporter();
+                }
+                else if ((exportToggle.getSelectedToggle().toString().equals("XML")))
+                {
+                    importer = new XMLImporter();
+                }
+
+                importer.importParts();
             }
         });
 

@@ -2,16 +2,17 @@ package io.exporting;
 
 import io.importing.JavaImporter;
 import model.CarPart;
+import model.PartsDatabase;
 
 import java.io.*;
 
 public class JavaExporter implements IExporter
 {
-    CarPart carPart;
+    PartsDatabase data;
 
-    public JavaExporter(CarPart carPart)
+    public JavaExporter(PartsDatabase data)
     {
-        this.carPart = carPart;
+        this.data = data;
     }
 
     @Override
@@ -23,13 +24,22 @@ public class JavaExporter implements IExporter
             while (inputStream.readObject() != null)
             {
                 CarPart carPartInput = (CarPart) inputStream.readObject();
-                if (carPartInput == carPart)
+
+                for (CarPart carPart : data.getParts())
                 {
-                    return false;
+                    if (carPartInput == carPart)
+                    {
+                        return false;
+                    }
                 }
             }
+
             ObjectOutputStream outputStream = new ObjectOutputStream(new FileOutputStream("parts.dat"));
-            outputStream.writeObject(carPart);
+
+            for (CarPart carPart : data.getParts())
+            {
+                outputStream.writeObject(carPart);
+            }
 
             return true;
         } catch (IOException e)

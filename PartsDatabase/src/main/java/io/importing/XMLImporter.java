@@ -1,6 +1,7 @@
 package io.importing;
 
 import model.CarPart;
+import model.PartsDatabase;
 
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
@@ -9,7 +10,7 @@ import java.io.File;
 
 public class XMLImporter implements IImporter
 {
-    CarPart carPart;
+    PartsDatabase data;
 
     @Override
     public boolean importParts()
@@ -21,7 +22,12 @@ public class XMLImporter implements IImporter
             {
                 JAXBContext context = JAXBContext.newInstance(CarPart.class);
                 Unmarshaller unmarshaller = context.createUnmarshaller();
-                carPart = (CarPart)unmarshaller.unmarshal(new File("parts.xml"));
+
+                while ((CarPart)unmarshaller.unmarshal(new File("parts.xml")) != null)
+                {
+                    CarPart carPart = (CarPart)unmarshaller.unmarshal(new File("parts.xml"));
+                    data.addPart(carPart);
+                }
 
                 return true;
             } catch (JAXBException e)
