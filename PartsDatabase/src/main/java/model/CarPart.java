@@ -1,6 +1,8 @@
 package model;
 
-public class CarPart
+import java.io.Serializable;
+
+public class CarPart implements Serializable
 {
     private String id;
     private String manufacturer;
