@@ -8,10 +8,25 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 
+/**
+ * Imports in a JSON file to be converted to PartsDatabase object
+ *
+ * @author Angelo Blanchard
+ * @version 1.0
+ */
 public class JSONImporter implements IImporter
 {
     PartsDatabase data;
 
+    public JSONImporter()
+    {
+        data = new PartsDatabase();
+    }
+
+    /**
+     * Imports in the .json file
+     * @return false if the file is empty, true otherwise
+     */
     @Override
     public boolean importParts()
     {
@@ -23,9 +38,16 @@ public class JSONImporter implements IImporter
             {
                 CarPart[] carParts = gson.fromJson(new FileReader("parts.json"), CarPart[].class);
 
-                for (CarPart carPart : data.getParts())
+                for (CarPart carPart : carParts)
                 {
-                    data.addPart(carPart);
+                    if (data == null)
+                    {
+                        data.addPart(carPart);
+                    }
+                    else if (!data.getParts().contains(carPart))
+                    {
+                        data.addPart(carPart);
+                    }
                 }
                 return true;
             } catch (FileNotFoundException e)

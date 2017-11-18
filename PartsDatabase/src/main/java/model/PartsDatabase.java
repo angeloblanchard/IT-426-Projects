@@ -6,6 +6,9 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 
+/**
+ * Stores a Collection of all CarPart objects. Also uses xml annotations
+ */
 @XmlRootElement
 public class PartsDatabase
 {

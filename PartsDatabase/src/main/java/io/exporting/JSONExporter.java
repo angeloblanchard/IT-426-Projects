@@ -9,6 +9,12 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 
+/**
+ * Exports the PartsDatabase object into a JSON file
+ *
+ * @author Angelo Blanchard
+ * @version 1.0
+ */
 public class JSONExporter implements IExporter
 {
     PartsDatabase data;
@@ -18,26 +24,49 @@ public class JSONExporter implements IExporter
         this.data = data;
     }
 
+    /**
+     * exports PartsDatabase object into parts.json
+     * @return
+     */
     @Override
     public boolean exportParts()
     {
         try
         {
-            Gson gson = new GsonBuilder().setPrettyPrinting().create();
+            Gson gsonIn = new Gson();
 
-            CarPart[] carPartInput = (gson.fromJson(new FileReader("parts.json"), CarPart[].class));
+            CarPart[] carPartInput = (gsonIn.fromJson(new FileReader("parts.json"), CarPart[].class));
             int count = 0;
+            CarPart[] carPart;
 
-            for (CarPart carPart : data.getParts())
+            if (carPartInput != null)
             {
-                if (carPart == carPartInput[count])
+                for (CarPart part : carPartInput)
                 {
-                    return false;
+                    if (carPartInput == null)
+                    {
+                        break;
+                    }
+                    if (data.getParts().contains(part))
+                    {
+                        return false;
+                    }
+                    data.addPart(part);
                 }
-                count++;
             }
 
-            gson.toJson(data.getParts(), new FileWriter("parts.json"));
+            carPart = new CarPart[data.getParts().size()];
+            for (CarPart part : data.getParts())
+            {
+                carPart[count] = part;
+                count++;
+            }
+            Gson gsonOut = new GsonBuilder().setPrettyPrinting().create();
+
+            FileWriter writer = new FileWriter("parts.json");
+            gsonOut.toJson(carPart, writer);
+            writer.flush();
+
             return true;
         } catch (IOException e)
         {

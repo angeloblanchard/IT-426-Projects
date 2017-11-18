@@ -3,11 +3,14 @@ package io.importing;
 import model.CarPart;
 import model.PartsDatabase;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.ObjectInputStream;
+import java.io.*;
 
+/**
+ * Imports in a DAT file to be converted to a PartsDatabase object
+ *
+ * @author Angelo Blanchard
+ * @version 1.0
+ */
 public class JavaImporter implements IImporter
 {
     PartsDatabase data;
@@ -17,6 +20,10 @@ public class JavaImporter implements IImporter
         data = new PartsDatabase();
     }
 
+    /**
+     * imports file from parts.dat
+     * @return false if file is empty, true otherwise
+     */
     @Override
     public boolean importParts()
     {
@@ -25,15 +32,26 @@ public class JavaImporter implements IImporter
         {
             try
             {
-                ObjectInputStream inputStream = new ObjectInputStream(new FileInputStream("parts.dat"));
-                while (inputStream.readObject() != null)
+                FileInputStream fileInputStream = new FileInputStream(partsFile);
+                ObjectInputStream inputStream = new ObjectInputStream(fileInputStream);
+
+                CarPart part = (CarPart)inputStream.readObject();
+                while (part != null)
                 {
-                    CarPart carPart = (CarPart) inputStream.readObject();
+                    data.addPart(part);
+                    part = (CarPart) inputStream.readObject();
 
-                    data.addPart(carPart);
                 }
+                inputStream.close();
 
+            } catch (StreamCorruptedException e)
+            {
+                e.printStackTrace();
+            }catch (EOFException e)
+            {
+                e.printStackTrace();
             } catch (IOException e)
+
             {
                 e.printStackTrace();
             } catch (ClassNotFoundException e)

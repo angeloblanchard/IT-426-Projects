@@ -1,15 +1,17 @@
 package io.exporting;
 
-import model.CarPart;
 import model.PartsDatabase;
 
-import javax.xml.bind.JAXBContext;
-import javax.xml.bind.JAXBException;
-import javax.xml.bind.Marshaller;
-import javax.xml.bind.Unmarshaller;
+import javax.xml.bind.*;
 import java.io.File;
-import java.io.IOException;
 
+/**
+ * Exports PartsDatabase object to a .json file
+ *
+ * @author Angelo
+ * @version 1.0
+ *
+ */
 public class XMLExporter implements IExporter
 {
     PartsDatabase data;
@@ -19,33 +21,36 @@ public class XMLExporter implements IExporter
         this.data = data;
     }
 
+    /**
+     * exports all parts to parts.json file
+     * @return true if new parts added, false if empty or the same
+     */
     @Override
     public boolean exportParts()
     {
         try
         {
-            JAXBContext context = JAXBContext.newInstance(CarPart.class);
+            JAXBContext context = JAXBContext.newInstance(PartsDatabase.class);
             Unmarshaller unmarshaller = context.createUnmarshaller();
 
-            while ((CarPart)unmarshaller.unmarshal(new File("parts.xml")) != null)
+            if (((PartsDatabase) unmarshaller.unmarshal(new File("parts.xml")) != null))
             {
-                CarPart carPartInput = (CarPart)unmarshaller.unmarshal(new File("parts.xml"));
+                PartsDatabase parts = (PartsDatabase) unmarshaller.unmarshal(new File("parts.xml"));
 
-                for (CarPart carPart : data.getParts())
+                if (parts == data)
                 {
-                    if (carPart == carPartInput)
-                    {
-                        return false;
-                    }
+                    return false;
                 }
-
             }
 
             Marshaller marshaller = context.createMarshaller();
             marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
-            marshaller.marshal(data.getParts(), new File("parts.xml"));
+            marshaller.marshal(data, new File("parts.xml"));
 
             return true;
+        } catch (UnmarshalException ex)
+        {
+
         } catch (JAXBException e)
         {
             e.printStackTrace();

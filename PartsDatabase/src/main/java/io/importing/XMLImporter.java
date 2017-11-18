@@ -8,10 +8,20 @@ import javax.xml.bind.JAXBException;
 import javax.xml.bind.Unmarshaller;
 import java.io.File;
 
+/**
+ * Imports in an XML file and converts back into PartsDatabase object
+ *
+ * @author Angelo
+ * @version 1.0
+ */
 public class XMLImporter implements IImporter
 {
     PartsDatabase data;
 
+    /**
+     * Imports the .xml file
+     * @return false if file is empty, true otherwise
+     */
     @Override
     public boolean importParts()
     {
@@ -20,17 +30,24 @@ public class XMLImporter implements IImporter
         {
             try
             {
-                JAXBContext context = JAXBContext.newInstance(CarPart.class);
+                JAXBContext context = JAXBContext.newInstance(PartsDatabase.class);
                 Unmarshaller unmarshaller = context.createUnmarshaller();
 
-                while ((CarPart)unmarshaller.unmarshal(new File("parts.xml")) != null)
+                PartsDatabase partsData = (PartsDatabase) unmarshaller.unmarshal(new File("parts.xml"));
+
+                if (partsData != null)
                 {
-                    CarPart carPart = (CarPart)unmarshaller.unmarshal(new File("parts.xml"));
-                    data.addPart(carPart);
+                    for (CarPart part : partsData.getParts())
+                    {
+                        data.addPart(part);
+                    }
                 }
 
                 return true;
             } catch (JAXBException e)
+            {
+                e.printStackTrace();
+            } catch (UnsupportedOperationException e)
             {
                 e.printStackTrace();
             }

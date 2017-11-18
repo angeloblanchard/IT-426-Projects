@@ -1,11 +1,16 @@
 package io.exporting;
 
-import io.importing.JavaImporter;
 import model.CarPart;
 import model.PartsDatabase;
 
 import java.io.*;
 
+/**
+ * Exports a PartsDatabase object into a DAT file
+ *
+ * @author Angelo Blanchard
+ * @version 1.0
+ */
 public class JavaExporter implements IExporter
 {
     PartsDatabase data;
@@ -15,13 +20,17 @@ public class JavaExporter implements IExporter
         this.data = data;
     }
 
+    /**
+     * exports PartsDatabase object into parts.dat
+     * @return
+     */
     @Override
     public boolean exportParts()
     {
         try
         {
             ObjectInputStream inputStream = new ObjectInputStream(new FileInputStream("parts.dat"));
-            while (inputStream.readObject() != null)
+            while (inputStream.readObject() instanceof CarPart)
             {
                 CarPart carPartInput = (CarPart) inputStream.readObject();
 
@@ -33,6 +42,21 @@ public class JavaExporter implements IExporter
                     }
                 }
             }
+        } catch (EOFException ex)
+        {
+            ex.printStackTrace();
+        } catch (FileNotFoundException e)
+        {
+            e.printStackTrace();
+        } catch (IOException e)
+        {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e)
+        {
+            e.printStackTrace();
+        }
+        try
+        {
 
             ObjectOutputStream outputStream = new ObjectOutputStream(new FileOutputStream("parts.dat"));
 
@@ -41,11 +65,9 @@ public class JavaExporter implements IExporter
                 outputStream.writeObject(carPart);
             }
 
+            outputStream.close();
             return true;
         } catch (IOException e)
-        {
-            e.printStackTrace();
-        } catch (ClassNotFoundException e)
         {
             e.printStackTrace();
         }

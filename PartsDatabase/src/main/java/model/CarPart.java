@@ -1,13 +1,24 @@
 package model;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
 import java.io.Serializable;
 
+/**
+ * CarPart object, to be used with the PartsDatabase. Implements Serializable to
+ * work with XML.
+ *
+ * @author Angelo Blanchard
+ * @version 1.1
+ */
+@XmlRootElement
 public class CarPart implements Serializable
 {
     private String id;
     private String manufacturer;
     private double listPrice;
     private String[] categories;
+    public static final long serialVersionUID = 42L;
 
     public CarPart()
     {
@@ -22,21 +33,25 @@ public class CarPart implements Serializable
         this.categories = categories;
     }
 
+    @XmlElement
     public String getId()
     {
         return id;
     }
 
+    @XmlElement
     public String getManufacturer()
     {
         return manufacturer;
     }
 
+    @XmlElement
     public double getListPrice()
     {
         return listPrice;
     }
 
+    @XmlElement
     public String[] getCategories()
     {
         return categories;
