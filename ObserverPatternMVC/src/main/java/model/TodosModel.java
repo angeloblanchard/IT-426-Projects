@@ -79,7 +79,7 @@ public class TodosModel extends Observable
      */
     public void deleteTask(int index)
     {
-        if (todoList.contains(todoList.get(index)))
+        if (!todoList.contains(todoList.get(index)))
         {
             try
             {
