@@ -1,8 +1,9 @@
 package model;
 
+import java.io.Serializable;
 import java.util.UUID;
 
-public class Todo
+public class Todo implements Serializable
 {
     private UUID id;
     private String message;

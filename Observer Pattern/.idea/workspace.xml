@@ -2,31 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="93e10ef6-e7fc-458e-b79e-c4c27f2c2202" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../ObserverPatternMVC/todos.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../FactoryPatterns/.idea/compiler.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../FactoryPatterns/.idea/vcs.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../FactoryPatterns/src/main/java/factory_method_pattern/AdGenerator.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../FactoryPatterns/src/main/java/factory_method_pattern/Advertisement.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../FactoryPatterns/src/main/java/factory_method_pattern/HawaiiAdGenerator.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../FactoryPatterns/src/main/java/factory_method_pattern/HawaiiAds.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../FactoryPatterns/src/main/java/factory_method_pattern/IRegionalAdGenerator.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../FactoryPatterns/src/main/java/factory_method_pattern/TestAds.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../FactoryPatterns/src/main/java/factory_method_pattern/WashingtonAdGenerator.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../FactoryPatterns/src/main/java/factory_method_pattern/WashingtonAds.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../ObserverPatternMVC/.idea/compiler.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../ObserverPatternMVC/.idea/dictionaries/Angelo.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../ObserverPatternMVC/.idea/vcs.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../ObserverPatternMVC/src/main/java/controller/TodoController.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../ObserverPatternMVC/src/main/java/launcher/Launcher.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../ObserverPatternMVC/src/main/java/model/Todo.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../ObserverPatternMVC/src/main/java/model/TodosModel.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../ObserverPatternMVC/src/main/java/view/TodoView.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../ObserverPatternMVC/src/styles/styles.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../ObserverPatternMVC/.idea/misc.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../ObserverPatternMVC/.idea/modules.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../ObserverPatternMVC/ObserverPatternMVC.iml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../ObserverPatternMVC/pom.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../ObserverPatternMVC/src/main/java/model/JavaExporter.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../ObserverPatternMVC/src/main/java/model/JavaImporter.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../ObserverPatternMVC/todos.dat" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../JavaFXStagesAndScenes/.idea/workspace.xml" afterPath="$PROJECT_DIR$/../JavaFXStagesAndScenes/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ObserverPatternMVC/src/main/java/controller/TodoController.java" afterPath="$PROJECT_DIR$/../ObserverPatternMVC/src/main/java/controller/TodoController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ObserverPatternMVC/src/main/java/model/Todo.java" afterPath="$PROJECT_DIR$/../ObserverPatternMVC/src/main/java/model/Todo.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ObserverPatternMVC/src/main/java/model/TodosModel.java" afterPath="$PROJECT_DIR$/../ObserverPatternMVC/src/main/java/model/TodosModel.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ObserverPatternMVC/src/main/java/view/TodoView.java" afterPath="$PROJECT_DIR$/../ObserverPatternMVC/src/main/java/view/TodoView.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../PartsDatabase/.idea/workspace.xml" afterPath="$PROJECT_DIR$/../PartsDatabase/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../SingletonPattern/.idea/workspace.xml" afterPath="$PROJECT_DIR$/../SingletonPattern/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../StrategyPattern/.idea/workspace.xml" afterPath="$PROJECT_DIR$/../StrategyPattern/.idea/workspace.xml" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -75,11 +64,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Classroom.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Classroom.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/student_registrations/Classroom.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="252">
-              <caret line="12" column="31" lean-forward="false" selection-start-line="12" selection-start-column="31" selection-end-line="12" selection-end-column="31" />
+              <caret line="12" column="31" lean-forward="true" selection-start-line="12" selection-start-column="31" selection-end-line="12" selection-end-column="31" />
               <folding />
             </state>
           </provider>
@@ -88,7 +77,7 @@
       <file leaf-file-name="Registrar.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/student_registrations/Registrar.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="147">
+            <state relative-caret-position="210">
               <caret line="10" column="64" lean-forward="false" selection-start-line="10" selection-start-column="64" selection-end-line="10" selection-end-column="64" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -119,7 +108,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MyObservable.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="MyObservable.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/implementing_observer/MyObservable.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="273">
@@ -387,25 +376,27 @@
       <updated>1510688520983</updated>
       <workItem from="1510688526646" duration="1489000" />
       <workItem from="1510945542355" duration="3393000" />
-      <workItem from="1511915128387" duration="2105000" />
+      <workItem from="1511915128387" duration="5259000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="6987000" />
+    <option name="totallyTimeSpent" value="10141000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1098" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3294979" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3294979" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -421,7 +412,6 @@
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
@@ -567,18 +557,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/student_registrations/Registrar.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="147">
-          <caret line="10" column="64" lean-forward="false" selection-start-line="10" selection-start-column="64" selection-end-line="10" selection-end-column="64" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#211#212#0" expanded="true" />
-            <element signature="e#282#283#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/student_registrations/Student.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="441">
@@ -588,22 +566,6 @@
             <element signature="e#168#169#0" expanded="true" />
             <element signature="e#195#196#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/student_registrations/Classroom.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="12" column="31" lean-forward="false" selection-start-line="12" selection-start-column="31" selection-end-line="12" selection-end-column="31" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/student_registrations/TestObserverPattern.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="630">
-          <caret line="30" column="26" lean-forward="false" selection-start-line="30" selection-start-column="26" selection-end-line="30" selection-end-column="26" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -617,14 +579,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/implementing_observer/MyObserver.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="189">
-          <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/implementing_observer/MyObservable.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="273">
@@ -634,6 +588,42 @@
             <element signature="e#180#181#0" expanded="true" />
             <element signature="e#223#224#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/implementing_observer/MyObserver.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="189">
+          <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/student_registrations/TestObserverPattern.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="630">
+          <caret line="30" column="26" lean-forward="false" selection-start-line="30" selection-start-column="26" selection-end-line="30" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/student_registrations/Registrar.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="10" column="64" lean-forward="false" selection-start-line="10" selection-start-column="64" selection-end-line="10" selection-end-column="64" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#211#212#0" expanded="true" />
+            <element signature="e#282#283#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/student_registrations/Classroom.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="12" column="31" lean-forward="true" selection-start-line="12" selection-start-column="31" selection-end-line="12" selection-end-column="31" />
+          <folding />
         </state>
       </provider>
     </entry>

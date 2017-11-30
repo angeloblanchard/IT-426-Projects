@@ -2,31 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ff63fb39-3159-4e52-ac5c-89e289476a45" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../ObserverPatternMVC/todos.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../FactoryPatterns/.idea/compiler.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../FactoryPatterns/.idea/vcs.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../FactoryPatterns/src/main/java/factory_method_pattern/AdGenerator.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../FactoryPatterns/src/main/java/factory_method_pattern/Advertisement.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../FactoryPatterns/src/main/java/factory_method_pattern/HawaiiAdGenerator.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../FactoryPatterns/src/main/java/factory_method_pattern/HawaiiAds.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../FactoryPatterns/src/main/java/factory_method_pattern/IRegionalAdGenerator.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../FactoryPatterns/src/main/java/factory_method_pattern/TestAds.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../FactoryPatterns/src/main/java/factory_method_pattern/WashingtonAdGenerator.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../FactoryPatterns/src/main/java/factory_method_pattern/WashingtonAds.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../ObserverPatternMVC/.idea/compiler.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../ObserverPatternMVC/.idea/dictionaries/Angelo.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../ObserverPatternMVC/.idea/vcs.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../ObserverPatternMVC/src/main/java/controller/TodoController.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../ObserverPatternMVC/src/main/java/launcher/Launcher.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../ObserverPatternMVC/src/main/java/model/Todo.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../ObserverPatternMVC/src/main/java/model/TodosModel.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../ObserverPatternMVC/src/main/java/view/TodoView.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../ObserverPatternMVC/src/styles/styles.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../ObserverPatternMVC/.idea/misc.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../ObserverPatternMVC/.idea/modules.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../ObserverPatternMVC/ObserverPatternMVC.iml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../ObserverPatternMVC/pom.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../ObserverPatternMVC/src/main/java/model/JavaExporter.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../ObserverPatternMVC/src/main/java/model/JavaImporter.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../ObserverPatternMVC/todos.dat" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Observer Pattern/.idea/workspace.xml" afterPath="$PROJECT_DIR$/../Observer Pattern/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ObserverPatternMVC/src/main/java/controller/TodoController.java" afterPath="$PROJECT_DIR$/../ObserverPatternMVC/src/main/java/controller/TodoController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ObserverPatternMVC/src/main/java/model/Todo.java" afterPath="$PROJECT_DIR$/../ObserverPatternMVC/src/main/java/model/Todo.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ObserverPatternMVC/src/main/java/model/TodosModel.java" afterPath="$PROJECT_DIR$/../ObserverPatternMVC/src/main/java/model/TodosModel.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ObserverPatternMVC/src/main/java/view/TodoView.java" afterPath="$PROJECT_DIR$/../ObserverPatternMVC/src/main/java/view/TodoView.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../PartsDatabase/.idea/workspace.xml" afterPath="$PROJECT_DIR$/../PartsDatabase/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../SingletonPattern/.idea/workspace.xml" afterPath="$PROJECT_DIR$/../SingletonPattern/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../StrategyPattern/.idea/workspace.xml" afterPath="$PROJECT_DIR$/../StrategyPattern/.idea/workspace.xml" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -386,6 +375,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1098" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
