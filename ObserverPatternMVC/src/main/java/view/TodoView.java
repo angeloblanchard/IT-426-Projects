@@ -27,7 +27,11 @@ import java.util.ArrayList;
 import java.util.Observable;
 import java.util.Observer;
 
-
+/**
+ * @author Angelo Blanchard
+ * @version 1.0
+ * This is the GUI for adding and deleting tasks from a todos list.
+ */
 public class TodoView extends Application implements Observer
 {
     private static final double SCENE_WIDTH = 400;
@@ -38,6 +42,10 @@ public class TodoView extends Application implements Observer
     private VBox tasksBox;
     private BorderPane root;
 
+    /**
+     * Sets initial stage to the welcome scene
+     * @param stage Primary stage of GUI
+     */
     @Override
     public void start(Stage stage)
     {
@@ -145,7 +153,6 @@ public class TodoView extends Application implements Observer
         tasksBox.setAlignment(Pos.TOP_CENTER);
         tasksBox.setPadding(new Insets(20));
 
-
         Button addTask = new Button("+");
         addTask.setPrefWidth(60);
         addTask.setOnAction(new EventHandler<ActionEvent>()
@@ -163,10 +170,8 @@ public class TodoView extends Application implements Observer
             }
         });
 
-
         hbox.getChildren().add(task);
         hbox.getChildren().add(addTask);
-
 
         Scene scene = new Scene(root, SCENE_WIDTH, SCENE_HEIGHT);
         scene.getStylesheets().clear();
@@ -236,7 +241,7 @@ public class TodoView extends Application implements Observer
                 public void changed(ObservableValue<? extends Boolean> observable,
                                     Boolean oldValue, Boolean newValue)
                 {
-                    controller.removeTask(box, finalI);
+                    controller.removeTask(finalI);
                     try
                     {
                         stage.setScene(getTasksScene());
@@ -251,6 +256,11 @@ public class TodoView extends Application implements Observer
         return checkBox;
     }
 
+    /**
+     * Observer method to update the GUI checkbox
+     * @param todoModel data of project
+     * @param todoList list to be updated
+     */
     @Override
     public void update(Observable todoModel, Object todoList)
     {

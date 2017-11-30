@@ -2,20 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="93e10ef6-e7fc-458e-b79e-c4c27f2c2202" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../ObserverPatternMVC/.idea/misc.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../ObserverPatternMVC/.idea/modules.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../ObserverPatternMVC/ObserverPatternMVC.iml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../ObserverPatternMVC/pom.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../ObserverPatternMVC/src/main/java/model/JavaExporter.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../ObserverPatternMVC/src/main/java/model/JavaImporter.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../ObserverPatternMVC/todos.dat" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/student_registrations/Teacher.class" afterPath="$PROJECT_DIR$/target/classes/student_registrations/Teacher.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../JavaFXStagesAndScenes/.idea/workspace.xml" afterPath="$PROJECT_DIR$/../JavaFXStagesAndScenes/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ObserverPatternMVC/src/main/java/controller/TodoController.java" afterPath="$PROJECT_DIR$/../ObserverPatternMVC/src/main/java/controller/TodoController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ObserverPatternMVC/src/main/java/model/Todo.java" afterPath="$PROJECT_DIR$/../ObserverPatternMVC/src/main/java/model/Todo.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ObserverPatternMVC/src/main/java/model/TodosModel.java" afterPath="$PROJECT_DIR$/../ObserverPatternMVC/src/main/java/model/TodosModel.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ObserverPatternMVC/src/main/java/view/TodoView.java" afterPath="$PROJECT_DIR$/../ObserverPatternMVC/src/main/java/view/TodoView.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../PartsDatabase/.idea/workspace.xml" afterPath="$PROJECT_DIR$/../PartsDatabase/.idea/workspace.xml" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
