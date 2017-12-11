@@ -1,9 +1,6 @@
 package ui;
 
-import adapters.CircleAdapter;
-import adapters.LineAdapter;
-import adapters.RectangleAdapter;
-import adapters.TriangleAdapter;
+import adapters.*;
 import drawing.IShape;
 import javafx.application.Application;
 import javafx.beans.value.ChangeListener;
@@ -28,6 +25,7 @@ import javafx.scene.shape.Polygon;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
+import shapes.Kirby;
 
 import java.util.Random;
 
@@ -42,7 +40,7 @@ public class DoodlePadView extends Application
     private double defaultThickness = 1.0;
     private boolean defaultFilled = false;
     private String selectedShape;
-    public static final double SCENE_WIDTH = 650;
+    public static final double SCENE_WIDTH = 700;
     public static final double SCENE_HEIGHT = 500;
 
     @Override
@@ -61,7 +59,6 @@ public class DoodlePadView extends Application
 
         createButtons();
 
-
         return new Scene(vbox, SCENE_WIDTH, SCENE_HEIGHT);
     }
 
@@ -79,6 +76,7 @@ public class DoodlePadView extends Application
         ToggleButton rectButton = new ToggleButton();
         ToggleButton triButton = new ToggleButton();
         ToggleButton lineButton = new ToggleButton();
+        ToggleButton kirbyButton = new ToggleButton("??");
 
         circleButton.setToggleGroup(toggleGroup);
         Circle circle = new Circle();
@@ -97,7 +95,6 @@ public class DoodlePadView extends Application
                 selectedShape = "circle";
             }
         });
-
 
         rectButton.setToggleGroup(toggleGroup);
         Rectangle rectangle = new Rectangle();
@@ -143,6 +140,18 @@ public class DoodlePadView extends Application
             public void handle(ActionEvent event)
             {
                 selectedShape = "line";
+            }
+        });
+
+        kirbyButton.setToggleGroup(toggleGroup);
+        kirbyButton.setPrefHeight(20);
+        kirbyButton.setMinWidth(45);
+        kirbyButton.setOnAction(new EventHandler<ActionEvent>()
+        {
+            @Override
+            public void handle(ActionEvent event)
+            {
+                selectedShape = "kirby";
             }
         });
 
@@ -192,7 +201,7 @@ public class DoodlePadView extends Application
 
         fillBox.getChildren().addAll(fillButton, fillLabel, thickLabel, textField, slider);
 
-        hbox.getChildren().addAll(circleButton, rectButton, triButton, lineButton, colorPicker, fillBox);
+        hbox.getChildren().addAll(circleButton, rectButton, triButton, lineButton, kirbyButton, colorPicker, fillBox);
 
         Canvas canvas = new Canvas(SCENE_WIDTH, SCENE_HEIGHT - 100);
         canvas.setOnMouseClicked(new EventHandler<MouseEvent>()
@@ -268,7 +277,12 @@ public class DoodlePadView extends Application
                 }
                 else
                 {
-                    if (newValue.matches("\\d"))
+                    if (newValue.equals("10"))
+                    {
+                        slider.setValue(10);
+                        defaultThickness = 10;
+                    }
+                    else if (newValue.matches("\\d"))
                     {
                         int value = Integer.parseInt(newValue);
                         int text = Integer.parseInt(textField.getText());
@@ -310,6 +324,10 @@ public class DoodlePadView extends Application
                 shapes.Line line = new shapes.Line(x, y, x + x2, y + y2, defaultThickness, defaultColor,
                         defaultFilled);
                 iShape = new LineAdapter(line);
+                break;
+            case "kirby":
+                shapes.Kirby kirby = new Kirby(x, y, 2, null, true);
+                iShape = new KirbyAdapter(kirby);
                 break;
         }
         return iShape;
