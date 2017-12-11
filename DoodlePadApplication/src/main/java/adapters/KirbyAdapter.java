@@ -5,57 +5,101 @@ import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
 import shapes.Kirby;
 
+/**
+ * @author Angelo
+ * @version 1.0
+ * This adapter implements the Kirby shape
+ */
 public class KirbyAdapter implements IShape
 {
     private Kirby kirby;
 
+    /**
+     *
+     * @param kirby shape
+     */
     public KirbyAdapter(Kirby kirby)
     {
         this.kirby = kirby;
     }
 
+    /**
+     *
+     * @param value thickness value
+     * @return IShape interface
+     */
     @Override
     public IShape setThickness(double value)
     {
-        return null;
+        return this;
     }
 
+    /**
+     *
+     * @param value color value
+     * @return IShape interface
+     */
     @Override
     public IShape setColor(Color value)
     {
-        return null;
+        return this;
     }
 
+    /**
+     *
+     * @param value true if filled
+     * @return IShape interface
+     */
     @Override
     public IShape setFilled(boolean value)
     {
-        return null;
+        return this;
     }
 
+    /**
+     *
+     * @return x value
+     */
     @Override
     public double getX()
     {
-        return 0;
+        return kirby.getX();
     }
 
+    /**
+     *
+     * @return y value
+     */
     @Override
     public double getY()
     {
-        return 0;
+        return kirby.getY();
     }
 
+    /**
+     *
+     * @return thickness value
+     */
     @Override
     public double getThickness()
     {
-        return 0;
+        return kirby.getThickness();
     }
 
+    /**
+     *
+     * @return color value
+     */
     @Override
     public Color getColor()
     {
-        return null;
+        return kirby.getColor();
     }
 
+    /**
+     *
+     * @return false
+     */
     @Override
     public boolean getFilled()
     {
