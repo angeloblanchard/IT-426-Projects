@@ -16,7 +16,6 @@ import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.*;
-import javafx.scene.input.InputMethodEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
@@ -29,12 +28,15 @@ import javafx.scene.shape.Polygon;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
-import shapes.Triangle;
+
+import java.util.Random;
 
 public class DoodlePadView extends Application
 {
+    public static final int DEFAULT_SIZE = 50;
     private IShape iShape;
     private VBox vbox;
+    private TextField textField;
     private Slider slider;
     private Color defaultColor = new Color(1, 0, 0, 1);
     private double defaultThickness = 1.0;
@@ -69,6 +71,7 @@ public class DoodlePadView extends Application
         hbox.setSpacing(10);
         hbox.setPadding(new Insets(0, 0, 0, 10));
         hbox.setMaxHeight(30);
+        selectedShape = "circle";
 
         ToggleGroup toggleGroup = new ToggleGroup();
 
@@ -183,25 +186,9 @@ public class DoodlePadView extends Application
             }
         });
 
-        TextField textField = getTextField();
+        getTextField();
 
-        slider = new Slider();
-        slider.setMin(1);
-        slider.setMax(10);
-        slider.setValue(5);
-        slider.setShowTickLabels(true);
-        slider.setMinorTickCount(10);
-        slider.setShowTickMarks(true);
-        slider.setSnapToTicks(true);
-        slider.setBlockIncrement(10);
-        slider.setOnInputMethodTextChanged(new EventHandler<InputMethodEvent>()
-        {
-            @Override
-            public void handle(InputMethodEvent event)
-            {
-                defaultThickness = slider.getValue();
-            }
-        });
+        getSlider();
 
         fillBox.getChildren().addAll(fillButton, fillLabel, thickLabel, textField, slider);
 
@@ -235,9 +222,32 @@ public class DoodlePadView extends Application
         vbox.getChildren().addAll(hbox, root);
     }
 
+    private void getSlider()
+    {
+        slider = new Slider();
+        slider.setMin(1);
+        slider.setMax(10);
+        slider.setValue(1);
+        slider.setShowTickLabels(true);
+        slider.setMinorTickCount(10);
+        slider.setShowTickMarks(true);
+        slider.setSnapToTicks(true);
+        slider.setBlockIncrement(10);
+
+        slider.valueProperty().addListener(new ChangeListener<Number>()
+        {
+            @Override
+            public void changed(ObservableValue<? extends Number> observable, Number oldValue, Number newValue)
+            {
+                defaultThickness = slider.getValue();
+                textField.setText(Double.toString(slider.getValue()));
+            }
+        });
+    }
+
     private TextField getTextField()
     {
-        TextField textField = new TextField();
+        textField = new TextField();
         textField.setPrefWidth(40);
         textField.setTextFormatter(new TextFormatter<String>((TextFormatter.Change change) -> {
             String newText = change.getControlNewText();
@@ -280,21 +290,24 @@ public class DoodlePadView extends Application
         switch (selectedShape)
         {
             case "circle":
-                shapes.Circle circle = new shapes.Circle(10, x, y, defaultThickness, defaultColor, defaultFilled);
+                shapes.Circle circle = new shapes.Circle(DEFAULT_SIZE, x, y, defaultThickness, defaultColor, defaultFilled);
                 iShape = new CircleAdapter(circle);
                 break;
             case "rectangle":
-                shapes.Rectangle rectangle = new shapes.Rectangle(x, y, 10, 10, defaultThickness,
+                shapes.Rectangle rectangle = new shapes.Rectangle(x, y, DEFAULT_SIZE, DEFAULT_SIZE, defaultThickness,
                         defaultColor, defaultFilled);
                 iShape = new RectangleAdapter(rectangle);
                 break;
             case "triangle":
-                shapes.Triangle triangle = new shapes.Triangle(x, y, 10, 10, defaultThickness,
+                shapes.Triangle triangle = new shapes.Triangle(x, y, DEFAULT_SIZE, -DEFAULT_SIZE, defaultThickness,
                         defaultColor, defaultFilled);
                 iShape = new TriangleAdapter(triangle);
                 break;
             case "line":
-                shapes.Line line = new shapes.Line(x, y, x + 10, y + 10, defaultThickness, defaultColor,
+                Random random = new Random();
+                int x2 = random.nextInt(200) - 100;
+                int y2 = random.nextInt(200) - 100;
+                shapes.Line line = new shapes.Line(x, y, x + x2, y + y2, defaultThickness, defaultColor,
                         defaultFilled);
                 iShape = new LineAdapter(line);
                 break;

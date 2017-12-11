@@ -5,6 +5,11 @@ import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
 import shapes.Line;
 
+/**
+ * @author Angelo
+ * @version 1.0
+ * This adapter implements the Line shape
+ */
 public class LineAdapter implements IShape
 {
     private Line line;
@@ -14,6 +19,11 @@ public class LineAdapter implements IShape
         this.line = line;
     }
 
+    /**
+     *
+     * @param value thickness value
+     * @return IShape interface
+     */
     @Override
     public IShape setThickness(double value)
     {
@@ -21,6 +31,11 @@ public class LineAdapter implements IShape
         return this;
     }
 
+    /**
+     *
+     * @param value color value
+     * @return IShape interface
+     */
     @Override
     public IShape setColor(Color value)
     {
@@ -28,6 +43,11 @@ public class LineAdapter implements IShape
         return this;
     }
 
+    /**
+     *
+     * @param value true if filled
+     * @return IShape interface
+     */
     @Override
     public IShape setFilled(boolean value)
     {
@@ -35,36 +55,60 @@ public class LineAdapter implements IShape
         return this;
     }
 
+    /**
+     *
+     * @return x value
+     */
     @Override
     public double getX()
     {
         return line.getX();
     }
 
+    /**
+     *
+     * @return y value
+     */
     @Override
     public double getY()
     {
         return line.getY();
     }
 
+    /**
+     *
+     * @return thickness value
+     */
     @Override
     public double getThickness()
     {
         return line.getThickness();
     }
 
+    /**
+     *
+     * @return color value
+     */
     @Override
     public Color getColor()
     {
         return line.getColor();
     }
 
+    /**
+     *
+     * @return true if shape is filled
+     */
     @Override
     public boolean getFilled()
     {
         return line.isFill();
     }
 
+    /**
+     *
+     * @param graphics Graphics to be used to draw on canvas
+     */
     @Override
     public void drawShape(GraphicsContext graphics)
     {

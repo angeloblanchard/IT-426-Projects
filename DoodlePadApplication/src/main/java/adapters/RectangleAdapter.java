@@ -5,6 +5,11 @@ import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
 import shapes.Rectangle;
 
+/**
+ * @author Angelo
+ * @version 1.0
+ * This adapter implements the Rectangle shape
+ */
 public class RectangleAdapter implements IShape
 {
     private Rectangle rectangle;
@@ -14,6 +19,11 @@ public class RectangleAdapter implements IShape
         this.rectangle = rectangle;
     }
 
+    /**
+     *
+     * @param value thickness value
+     * @return IShape interface
+     */
     @Override
     public IShape setThickness(double value)
     {
@@ -22,6 +32,11 @@ public class RectangleAdapter implements IShape
         return this;
     }
 
+    /**
+     *
+     * @param value color value
+     * @return IShape interface
+     */
     @Override
     public IShape setColor(Color value)
     {
@@ -30,6 +45,11 @@ public class RectangleAdapter implements IShape
         return this;
     }
 
+    /**
+     *
+     * @param value true if filled
+     * @return IShape interface
+     */
     @Override
     public IShape setFilled(boolean value)
     {
@@ -38,41 +58,71 @@ public class RectangleAdapter implements IShape
         return this;
     }
 
+    /**
+     *
+     * @return x value
+     */
     @Override
     public double getX()
     {
         return rectangle.getX();
     }
 
+    /**
+     *
+     * @return y value
+     */
     @Override
     public double getY()
     {
         return rectangle.getY();
     }
 
+    /**
+     *
+     * @return thickness value
+     */
     @Override
     public double getThickness()
     {
         return rectangle.getThickness();
     }
 
+    /**
+     *
+     * @return color value
+     */
     @Override
     public Color getColor()
     {
         return rectangle.getColor();
     }
 
+    /**
+     *
+     * @return true if filled
+     */
     @Override
     public boolean getFilled()
     {
         return rectangle.isFill();
     }
 
+    /**
+     *
+     * @param graphics Graphics to be used to draw on the canvas
+     */
     @Override
     public void drawShape(GraphicsContext graphics)
     {
         graphics.setStroke(rectangle.getColor());
         graphics.setLineWidth(rectangle.getThickness());
         graphics.strokeRect(rectangle.getX(), rectangle.getY(), rectangle.getWidth(), rectangle.getHeight());
+
+        if(getFilled())
+        {
+            graphics.setFill(rectangle.getColor());
+            graphics.fillRect(rectangle.getX(), rectangle.getY(), rectangle.getWidth(), rectangle.getHeight());
+        }
     }
 }

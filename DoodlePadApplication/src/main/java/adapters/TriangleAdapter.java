@@ -5,6 +5,11 @@ import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
 import shapes.Triangle;
 
+/**
+ * @author Angelo
+ * @version 1.0
+ * This adapter implements the Triangle shape
+ */
 public class TriangleAdapter implements IShape
 {
     private Triangle triangle;
@@ -14,6 +19,11 @@ public class TriangleAdapter implements IShape
         this.triangle = triangle;
     }
 
+    /**
+     *
+     * @param value thickness value
+     * @return IShape interface
+     */
     @Override
     public IShape setThickness(double value)
     {
@@ -22,6 +32,11 @@ public class TriangleAdapter implements IShape
         return this;
     }
 
+    /**
+     *
+     * @param value color value
+     * @return IShape interface
+     */
     @Override
     public IShape setColor(Color value)
     {
@@ -30,6 +45,11 @@ public class TriangleAdapter implements IShape
         return this;
     }
 
+    /**
+     *
+     * @param value true if filled
+     * @return IShape interface
+     */
     @Override
     public IShape setFilled(boolean value)
     {
@@ -38,41 +58,75 @@ public class TriangleAdapter implements IShape
         return this;
     }
 
+    /**
+     *
+     * @return x value
+     */
     @Override
     public double getX()
     {
         return triangle.getX();
     }
 
+    /**
+     *
+     * @return y value
+     */
     @Override
     public double getY()
     {
         return triangle.getY();
     }
 
+    /**
+     *
+     * @return thickness value
+     */
     @Override
     public double getThickness()
     {
         return triangle.getThickness();
     }
 
+    /**
+     *
+     * @return color value
+     */
     @Override
     public Color getColor()
     {
         return triangle.getColor();
     }
 
+    /**
+     *
+     * @return true if filled
+     */
     @Override
     public boolean getFilled()
     {
         return triangle.isFill();
     }
 
+    /**
+     *
+     * @param graphics Graphics to be used to draw on canvas
+     */
     @Override
     public void drawShape(GraphicsContext graphics)
     {
         graphics.setStroke(triangle.getColor());
         graphics.setLineWidth(triangle.getThickness());
-        graphics.strokeLine(triangle.getX(), triangle.getY(),triangle.getWidth(), triangle.getHeight());
+
+        graphics.strokePolygon(new double []{ getX(), getX() + triangle.getWidth(), getX() + triangle.getWidth() / 2},
+                new double[]{ getY(), getY(), getY() + triangle.getHeight()},
+                3);
+
+        if (getFilled())
+        {
+            graphics.setFill(triangle.getColor());
+            graphics.fillPolygon(new double []{ getX(), getX() + triangle.getWidth(), getX() + triangle.getWidth() / 2},
+                    new double[]{ getY(), getY(), getY() + triangle.getHeight()}, 3);
+        }
     }
 }
