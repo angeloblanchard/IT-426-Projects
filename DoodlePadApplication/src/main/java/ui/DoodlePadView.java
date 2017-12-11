@@ -1,15 +1,26 @@
 package ui;
 
+import adapters.CircleAdapter;
+import adapters.LineAdapter;
+import adapters.RectangleAdapter;
+import adapters.TriangleAdapter;
+import drawing.IShape;
 import javafx.application.Application;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
+import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
+import javafx.scene.canvas.Canvas;
+import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.*;
 import javafx.scene.input.InputMethodEvent;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.Pane;
+import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
@@ -18,13 +29,17 @@ import javafx.scene.shape.Polygon;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
-import shapes.Shape;
+import shapes.Triangle;
 
 public class DoodlePadView extends Application
 {
-    private Shape shape;
+    private IShape iShape;
     private VBox vbox;
     private Slider slider;
+    private Color defaultColor = new Color(1, 0, 0, 1);
+    private double defaultThickness = 1.0;
+    private boolean defaultFilled = false;
+    private String selectedShape;
     public static final double SCENE_WIDTH = 650;
     public static final double SCENE_HEIGHT = 500;
 
@@ -70,6 +85,11 @@ public class DoodlePadView extends Application
         circle.setStroke(Color.BLACK);
         circle.setFill(Color.CHARTREUSE);
         circleButton.setGraphic(circle);
+        circleButton.setSelected(true);
+        if (circleButton.isSelected())
+        {
+            selectedShape = "circle";
+        }
 
 
         rectButton.setToggleGroup(toggleGroup);
@@ -79,6 +99,10 @@ public class DoodlePadView extends Application
         rectangle.setStroke(Color.BLACK);
         rectangle.setFill(Color.RED);
         rectButton.setGraphic(rectangle);
+        if (rectButton.isSelected())
+        {
+            selectedShape = "rectangle";
+        }
 
         triButton.setToggleGroup(toggleGroup);
         Polygon triangle = new Polygon();
@@ -86,6 +110,10 @@ public class DoodlePadView extends Application
         triangle.setFill(Color.BLUEVIOLET);
         triangle.setStroke(Color.BLACK);
         triButton.setGraphic(triangle);
+        if (triButton.isSelected())
+        {
+            selectedShape = "triangle";
+        }
 
         lineButton.setToggleGroup(toggleGroup);
         Line line = new Line();
@@ -96,7 +124,7 @@ public class DoodlePadView extends Application
         lineButton.setGraphic(line);
         if (lineButton.isSelected())
         {
-            Line lineShape = new Line();
+            selectedShape = "line";
         }
 
 
@@ -104,6 +132,14 @@ public class DoodlePadView extends Application
         colorPicker.setPrefWidth(60);
         colorPicker.setPrefHeight(30);
         colorPicker.setStyle("-fx-color-label-visible: false ;");
+        colorPicker.setOnAction(new EventHandler<ActionEvent>()
+        {
+            @Override
+            public void handle(ActionEvent event)
+            {
+                defaultColor = colorPicker.getValue();
+            }
+        });
 
         HBox fillBox = new HBox();
         fillBox.setPadding(new Insets(5, 0, 5, 0));
@@ -111,7 +147,7 @@ public class DoodlePadView extends Application
         fillBox.setPrefHeight(30);
         fillBox.setPrefWidth(360);
 
-        Button fillButton = new Button();
+        CheckBox fillButton = new CheckBox();
         fillButton.setPrefWidth(10);
         fillButton.setPrefHeight(10);
         fillButton.setMinHeight(20);
@@ -122,6 +158,14 @@ public class DoodlePadView extends Application
         Label thickLabel = new Label("Thickness");
         thickLabel.setFont(Font.font(14));
         thickLabel.setPadding(new Insets(0, 0, 0, 10));
+        fillButton.selectedProperty().addListener(new ChangeListener<Boolean>()
+        {
+            @Override
+            public void changed(ObservableValue<? extends Boolean> observable, Boolean oldValue, Boolean newValue)
+            {
+                defaultFilled = newValue;
+            }
+        });
 
         TextField textField = getTextField();
 
@@ -139,17 +183,40 @@ public class DoodlePadView extends Application
             @Override
             public void handle(InputMethodEvent event)
             {
-
+                defaultThickness = slider.getValue();
             }
         });
 
         fillBox.getChildren().addAll(fillButton, fillLabel, thickLabel, textField, slider);
 
-
-
         hbox.getChildren().addAll(circleButton, rectButton, triButton, lineButton, colorPicker, fillBox);
 
-        vbox.getChildren().add(hbox);
+        Canvas canvas = new Canvas(SCENE_WIDTH, SCENE_HEIGHT - 100);
+        canvas.setOnMouseClicked(new EventHandler<MouseEvent>()
+        {
+            @Override
+            public void handle(MouseEvent event)
+            {
+                GraphicsContext graphics = canvas.getGraphicsContext2D();
+                double x = event.getX();
+                double y = event.getY();
+
+                iShape = implementShape(x, y, selectedShape);
+
+                iShape.drawShape(graphics);
+            }
+        });
+
+        Pane root = new Pane();
+
+        StackPane holder = new StackPane();
+
+        holder.getChildren().add(canvas);
+        root.getChildren().add(holder);
+
+        holder.setStyle("-fx-background-color: gray");
+
+        vbox.getChildren().addAll(hbox, root);
     }
 
     private TextField getTextField()
@@ -189,5 +256,32 @@ public class DoodlePadView extends Application
             }
         });
         return textField;
+    }
+
+    private IShape implementShape(double x, double y, String selectedShape)
+    {
+        switch (selectedShape)
+        {
+            case "circle":
+                shapes.Circle circle = new shapes.Circle(10, x, y, defaultThickness, defaultColor, defaultFilled);
+                iShape = new CircleAdapter(circle);
+                break;
+            case "rectangle":
+                shapes.Rectangle rectangle = new shapes.Rectangle(x, y, 10, 10, defaultThickness,
+                        defaultColor, defaultFilled);
+                iShape = new RectangleAdapter(rectangle);
+                break;
+            case "triangle":
+                shapes.Triangle triangle = new shapes.Triangle(x, y, 10, 10, defaultThickness,
+                        defaultColor, defaultFilled);
+                iShape = new TriangleAdapter(triangle);
+                break;
+            case "line":
+                shapes.Line line = new shapes.Line(x, y, x + 10, y + 10, defaultThickness, defaultColor,
+                        defaultFilled);
+                iShape = new LineAdapter(line);
+                break;
+        }
+        return iShape;
     }
 }

@@ -9,6 +9,11 @@ public class RectangleAdapter implements IShape
 {
     private Rectangle rectangle;
 
+    public RectangleAdapter(Rectangle rectangle)
+    {
+        this.rectangle = rectangle;
+    }
+
     @Override
     public IShape setThickness(double value)
     {

@@ -9,6 +9,11 @@ public class LineAdapter implements IShape
 {
     private Line line;
 
+    public LineAdapter(Line line)
+    {
+        this.line = line;
+    }
+
     @Override
     public IShape setThickness(double value)
     {

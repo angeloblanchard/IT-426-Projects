@@ -9,6 +9,11 @@ public class TriangleAdapter implements IShape
 {
     private Triangle triangle;
 
+    public TriangleAdapter(Triangle triangle)
+    {
+        this.triangle = triangle;
+    }
+
     @Override
     public IShape setThickness(double value)
     {

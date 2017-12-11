@@ -9,6 +9,11 @@ public class CircleAdapter implements IShape
 {
     private Circle circle;
 
+    public CircleAdapter(Circle circle)
+    {
+        this.circle = circle;
+    }
+
     @Override
     public IShape setThickness(double value)
     {
