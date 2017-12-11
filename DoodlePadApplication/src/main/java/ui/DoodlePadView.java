@@ -86,10 +86,14 @@ public class DoodlePadView extends Application
         circle.setFill(Color.CHARTREUSE);
         circleButton.setGraphic(circle);
         circleButton.setSelected(true);
-        if (circleButton.isSelected())
+        circleButton.setOnAction(new EventHandler<ActionEvent>()
         {
-            selectedShape = "circle";
-        }
+            @Override
+            public void handle(ActionEvent event)
+            {
+                selectedShape = "circle";
+            }
+        });
 
 
         rectButton.setToggleGroup(toggleGroup);
@@ -99,10 +103,14 @@ public class DoodlePadView extends Application
         rectangle.setStroke(Color.BLACK);
         rectangle.setFill(Color.RED);
         rectButton.setGraphic(rectangle);
-        if (rectButton.isSelected())
+        rectButton.setOnAction(new EventHandler<ActionEvent>()
         {
-            selectedShape = "rectangle";
-        }
+            @Override
+            public void handle(ActionEvent event)
+            {
+                selectedShape = "rectangle";
+            }
+        });
 
         triButton.setToggleGroup(toggleGroup);
         Polygon triangle = new Polygon();
@@ -110,10 +118,14 @@ public class DoodlePadView extends Application
         triangle.setFill(Color.BLUEVIOLET);
         triangle.setStroke(Color.BLACK);
         triButton.setGraphic(triangle);
-        if (triButton.isSelected())
+        triButton.setOnAction(new EventHandler<ActionEvent>()
         {
-            selectedShape = "triangle";
-        }
+            @Override
+            public void handle(ActionEvent event)
+            {
+                selectedShape = "triangle";
+            }
+        });
 
         lineButton.setToggleGroup(toggleGroup);
         Line line = new Line();
@@ -122,10 +134,14 @@ public class DoodlePadView extends Application
         line.setEndX(0);
         line.setEndY(19);
         lineButton.setGraphic(line);
-        if (lineButton.isSelected())
+        lineButton.setOnAction(new EventHandler<ActionEvent>()
         {
-            selectedShape = "line";
-        }
+            @Override
+            public void handle(ActionEvent event)
+            {
+                selectedShape = "line";
+            }
+        });
 
 
         ColorPicker colorPicker = new ColorPicker();
@@ -251,6 +267,7 @@ public class DoodlePadView extends Application
                             textField.setText(newValue);
                         }
                         slider.setValue(value);
+                        defaultThickness = value;
                     }
                 }
             }

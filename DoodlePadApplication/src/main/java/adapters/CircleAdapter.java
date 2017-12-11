@@ -68,7 +68,8 @@ public class CircleAdapter implements IShape
     @Override
     public void drawShape(GraphicsContext graphics)
     {
-        graphics.setStroke(circle.getColor());
+        graphics.setStroke(Color.BLACK);
+        graphics.setFill(circle.getColor());
         graphics.setLineWidth(circle.getThickness());
         graphics.fillOval(circle.getX(), circle.getY(), circle.getX() + 10, circle.getY() + 10);
     }
