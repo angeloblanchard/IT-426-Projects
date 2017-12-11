@@ -66,6 +66,8 @@ public class KirbyAdapter implements IShape
     public void drawShape(GraphicsContext graphics)
     {
         // Feet
+        graphics.setLineWidth(2);
+        graphics.setStroke(Color.BLACK);
         graphics.setFill(Color.RED);
         graphics.fillOval(kirby.getX() - 5, kirby.getY() + 120, 70, 40);
         graphics.strokeOval(kirby.getX() - 5, kirby.getY() + 120, 70, 40);
